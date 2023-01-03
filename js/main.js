@@ -10,5 +10,4 @@ function getData(name) {
 		});
 }
 
-getData(19931008);
-
+getData('19931008');
