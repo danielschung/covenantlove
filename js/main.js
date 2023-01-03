@@ -1,12 +1,14 @@
 console.log('works');
 
-function getData() {
-	fetch('https://danielschung.github.io/covenantlove/js/data.json', {
-		method: 'GET'
-	})
-	.then((response) => response.json())
-	.then((data) => console.log(data));
+const url = 'https://danielschung.github.io/covenantlove/js/data.json'
+
+function getData(name) {
+	fetch(url)
+		.then(res => res.json())
+		.then(data => {
+			console.log(data.passage);
+		});
 }
 
-getData();
+getData(19931008);
 
