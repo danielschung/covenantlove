@@ -1,19 +1,23 @@
+<%response.setContentType("application/json");%>
+
 {
 
 	"19931008": {
-		"passage":"Romans 3:10-23", 
-		"title":"Because We Are Sinners",
-		"speaker":"Pastor Min Joshua Chung",
-		"date":"October 8, 1993",
-		"tags": ["sin"]
+		"passage": "Romans 3:10-23", 
+		"title": "Because We Are Sinners",
+		"speaker": "Pastor Min Joshua Chung",
+		"date": "October 8, 1993",
+		"tags": ["sin"],
+		"plays": 0
 	},
 
 	"19931203": {
-		"passage":"2 Timothy 3:16", 
-		"title":"Do We Need To Talk About Sin?",
-		"speaker":"Pastor Min Joshua Chung",
-		"date":"December 3, 1993",
-		"tags": ["test"]
+		"passage": "2 Timothy 3:16", 
+		"title": "Do We Need To Talk About Sin?",
+		"speaker": "Pastor Min Joshua Chung",
+		"date": "December 3, 1993",
+		"tags": ["test"],
+		"plays": 0
 	}
 
 }
