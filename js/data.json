@@ -1,20 +1,21 @@
 {
-	"test":{
+	"sermons":[{
+		"id":"19931008",
 		"passage":"Romans 3:10-23", 
 		"title":"Because We Are Sinners",
 		"speaker":"Pastor Min Joshua Chung",
 		"date":"October 8, 1993",
 		"plays":0,
 		"tags":["sin"]
-	},
-	"test2":{
+	},{
+		"id":"19931203",
 		"passage": "2 Timothy 3:16", 
 		"title": "Do We Need To Talk About Sin?",
 		"speaker": "Pastor Min Joshua Chung",
 		"date": "December 3, 1993",
 		"plays": 0,
 		"tags": ["test"]
-	}
+	}]
 }
 
 
