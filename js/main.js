@@ -1,12 +1,12 @@
 console.log('works');
 
-const url = 'https://danielschung.github.io/covenantlove/js/data.json'
+const url = 'https://danielschung.github.io/covenantlove/js/data.json';
 
 function getData(name) {
 	fetch(url)
 		.then(res => res.json())
 		.then(data => {
-			console.log(data.passage);
+			console.log(data);
 		});
 }
 
