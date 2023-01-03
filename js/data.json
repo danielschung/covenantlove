@@ -1,5 +1,3 @@
-<%response.setContentType("application/json");%>
-
 {
 
 	"19931008": {
