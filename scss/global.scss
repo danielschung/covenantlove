@@ -1,0 +1,377 @@
+/* ------- Contents -------
+
+00  Reset
+01  Colors
+02  Typography
+03  Spacing
+04  Image
+05  Nav
+06  Search
+07  Results
+
+*/
+
+// ------- 00 Reset ------- 
+html, body, h1, h2, h3, h4, h5, p, div, ul, li, span {
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+	position:relative;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+@mixin hover {
+  -o-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+@mixin vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+div.clear {
+	clear:both;
+}
+
+// ------- 01 Colors -------
+$black:#313131;
+$darkgrey:#5B5B5B;
+$grey:#ACACAC;
+$border:#DCDCDC;
+$lightgrey:#F2F2F2;
+$white:#FBFBFB;
+$truewhite:#FFFFFF;
+$accent:#0252CA;
+
+// ------- 02 Typography -------
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+$header-font:'Lora', 'Garamond', 'serif';
+$body-font:'Source Sans Pro', 'Garamond', 'sans-serif';
+
+h1 {
+	font-family:$header-font;
+	font-weight:400;
+	font-size:3rem; //48px
+	color:$black;
+}
+
+h2 {
+	font-family:$header-font;
+	font-weight:400;
+	font-size:2rem; //32px
+	color:$black; 
+}
+
+h3 {
+	font-family:$header-font;
+	font-weight:400;
+	font-size:1.5rem; //24px
+	color:$black; 
+}
+
+p {
+	font-family:$body-font;
+	font-weight:400;
+	font-size:1rem; //16px
+	color:$black;
+}
+
+p.s {
+	font-family:$body-font;
+	font-weight:400;
+	font-size:0.875rem; //14px
+	color:$black;
+}
+
+p.xs {
+	font-family:$body-font;
+	font-weight:400;
+	font-size:0.75rem; //12px
+	color:$black;
+}
+
+.date {
+	font-family:$body-font;
+	font-weight:400;
+	font-size:0.75rem; //12px
+	color:$darkgrey;
+	text-transform:uppercase;
+}
+
+a {
+	@extend p;
+	text-decoration:none;
+}
+
+::selection {
+  background: $accent;
+  color: $white;
+}
+
+
+// ------- 03 Spacing -------
+$padding-xs:24px;
+$padding-s:32px;
+$padding-r:40px;
+$padding-l:64px;
+$padding-xl:80px;
+$padding-body-side:5%;
+$padding-body-vert:80px;
+
+// ------- 04 Image -------
+@mixin image {
+	background-repeat: no-repeat;
+	background-position: top;
+	cursor:pointer;
+}
+
+// ------- 05 Nav -------
+$nav-height:77px;
+
+nav {
+	height:$nav-height;
+	background-color:$white;
+	position:fixed;
+	width:100vw;
+	-webkit-box-shadow:0px 2px 9px 10px #E4E4E4; 
+	box-shadow:0px 2px 9px 0px #E4E4E4;
+	z-index:100;
+
+	div.logo {
+		height:40px;
+		width:202px;
+		@include vertical-center;
+		left:$padding-xs;
+		background-image:url('assets/covenantlove.png');
+		background-size:100%;
+		@include image;
+	}
+
+	div.container {
+		@include vertical-center;
+		right:$padding-xs;
+
+		a {
+			line-height:0;
+			margin-left:48px;
+			padding:calc(#{$nav-height} * 0.37) 0;
+			border-bottom:2px solid rgba(0, 0, 0, 0);
+			position:relative;
+			@include hover;
+
+		}
+
+		a:nth-child(1) {
+			margin-left:0;
+		}
+
+		a.current {
+			color:$accent;
+			border-bottom:2px solid $accent;
+		}
+
+		a.filter {
+			padding-left:24px;
+			padding-right:24px;
+		}
+
+		a.filter::before {
+			content:url('assets/icon-filter.svg');
+			position:absolute;
+			top:0;
+			left:-5px;
+			@include vertical-center;
+		}
+
+		a.filter::after {
+			content:url('assets/icon-arrow-down.svg');
+			position:absolute;
+			top:0;
+			right:-5px;
+			@include vertical-center;
+		}
+
+		a:hover {
+			border-bottom:2px solid $accent;
+		}
+
+	}
+}
+
+// ------- 06 Search -------
+
+section {
+	position:relative;
+	top:$nav-height;
+}
+
+$search-icon-size:48px;
+
+section.search {
+	background-color:$white;
+	padding:$padding-l $padding-body-side $padding-body-side $padding-l;
+	position:relative;
+	top:$nav-height;
+
+	input.search {
+		@extend h1;
+		@include hover;
+		@include vertical-center;
+		border:none;
+		background-color:$white;
+		width:calc(100% - #{$search-icon-size} - 158px);
+		display:inline-block;
+	}
+
+	input.search::placeholder {
+		color:$black;
+	}
+
+	input.search::-webkit-search-cancel-button{
+	    background-color:green;  
+	}
+
+	div.search-icon {
+		background-image:url('assets/icon-search-large.svg');
+		height:$search-icon-size;
+		width:$search-icon-size;
+		display:inline-block;
+		position: relative;
+		top:4px;
+		margin-right:2rem;
+	}
+
+	input.search:focus {
+		outline:none;
+	}
+
+	input.search:focus::placeholder {
+		color:$border;
+	}
+}
+
+// ------- 07 Results -------
+$card-margin:25px;
+
+section.results {
+	background-color:$white;
+	height:100vh;
+
+	div.container {
+		display:flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		gap:25px;
+		max-width:1600px;
+		padding:0 $padding-xs;
+		margin:0 auto;
+
+		div.card {
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:flex-start;
+			flex-grow:1;
+			flex-shrink:3;
+			flex-wrap:wrap;
+			background-color:$truewhite;
+			padding:$padding-r;
+			border:1px solid $border;
+			margin:auto;
+			max-width:calc(90% / 3);
+
+			div.top {
+				margin-bottom:1rem;
+				width:100%;
+
+				.speaker {
+					@extend p;
+					@extend .s;
+					display:inline-block;
+					position:relative;
+					padding-left:calc(24px + 10px);
+				}
+
+				.speaker::before {
+					content:url('assets/pminchung.png');
+					position:relative;
+					height:24px;
+					width:24px;
+					left:0;
+					@include vertical-center;
+					cursor:pointer;
+				}
+
+				.date {
+					float:right;
+				}
+			}
+
+			div.middle {
+				.title {
+					margin-bottom:8px;
+				}
+			}
+
+			div.bottom {
+				display:flex;
+				flex-direction:row;
+				align-items:center;
+				margin-top:1.5rem;
+				position:relative;
+
+				.time {
+					@extend p;
+					padding-left:calc(24px + 8px);
+				}
+
+				.time::before {
+					content:url('assets/icon-button-play.svg');
+					position:absolute;
+					height:24px;
+					width:24px;
+					left:0;
+					@include vertical-center;
+					cursor:pointer;
+				}
+
+				.plays {
+					@extend p;
+					@extend .xs;
+					margin-left:8px;
+				}
+			}
+		}
+
+		div.card:nth-child(1){
+			margin-left: 0;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
