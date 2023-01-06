@@ -1,0 +1,165 @@
+nav {
+	height:$nav-height;
+	background-color:$white;
+	position:fixed;
+	width:100vw;
+	-webkit-box-shadow:0px 2px 9px 10px #E4E4E4; 
+	box-shadow:0px 2px 9px 0px #E4E4E4;
+	z-index:100;
+
+	div.logo {
+		height:40px;
+		width:202px;
+		@include vertical-center;
+		left:$padding-xs;
+	}
+	div.logo::before {
+		@include icon('assets/covenantlove.svg');
+	}
+
+	div.container {
+		@include vertical-center;
+		right:$padding-xs;
+
+		a {
+			line-height:0;
+			margin-left:48px;
+			padding:calc(#{$nav-height} * 0.37) 0;
+			border-bottom:2px solid rgba(0, 0, 0, 0);
+			position:relative;
+			@include hover;
+		}
+
+		a:nth-child(1) {
+			margin-left:0;
+		}
+
+		a.current {
+			color:$accent;
+			border-bottom:2px solid $accent;
+		}
+
+		a.filter {
+			padding-left:24px;
+			padding-right:24px;
+		}
+
+		a.filter::before {
+			@include icon('assets/icon-filter.svg');
+			left:-5px;
+			@include vertical-center;
+		}
+
+		a.filter::after {
+			@include icon('assets/icon-arrow-down.svg');
+			@include vertical-center;
+			right:-5px;
+		}
+
+		a:hover {
+			border-bottom:2px solid $accent;
+		}
+
+	}
+
+	div.mobile-nav {
+		display:none;
+		height:14px;
+		width:24px;
+		@include vertical-center;
+		right:$padding-xs;
+		@include hover;
+
+		div.line {
+			background-color:$black;
+			height:2px;
+			width:100%;
+			border-radius:4px;
+			position:absolute;
+		}
+
+		div.line:nth-child(2) {
+			top:calc(50% - 1px);
+		}
+		div.line:nth-child(3) {
+			bottom:0;
+		}	
+	}
+
+	div.mobile-nav:hover {
+		height:18px;
+	}
+
+	div.mobile-nav.x {
+		height:18px;
+
+		div.line:nth-child(1) {
+			animation-name:top;
+			animation-duration:100ms;
+			animation-iteration-count:1;
+			animation-fill-mode:forwards;
+		}
+
+		div.line:nth-child(2) {
+			animation-name:middle;
+			animation-duration:100ms;
+			animation-iteration-count:1;
+			animation-fill-mode:forwards;
+		}
+
+		div.line:nth-child(3) {
+			animation-name:bottom;
+			animation-duration:100ms;
+			animation-iteration-count:1;
+			animation-fill-mode:forwards;
+		}
+	}
+
+	@keyframes top {
+		0% { transform:rotate(0deg); top:0; }
+		100% { transform:rotate(45deg); top:calc(50% - 1px); }
+	}
+
+	@keyframes middle {
+		0% { width: 100%; }
+		100% { width:0; }
+	}
+
+	@keyframes bottom {
+		0% { transform:rotate(0deg); }
+		100% { transform:rotate(-45deg); bottom:calc(50% - 1px); }
+	}
+}
+
+// ------- 02 mobile nav -------
+@media only screen and (max-width:1200px) { // smaller browser
+	nav div.mobile-nav {
+		display:inline-block;
+		position:absolute;
+		z-index:11;
+	}
+
+	nav div.container {
+		background-color:$white;
+		padding:calc(#{$padding-s} + 24px) $padding-s $padding-s $padding-s;
+		position:fixed;
+		height:100vh;
+		width:100vw;
+		left:100vw;
+		z-index:10;
+		display:none;
+
+		a {
+			display:block;
+			width:130px;
+			margin-left:0;
+			text-align:center;
+			left:calc(100% - 178px);
+		}
+
+		a.link {
+			width:calc(130px + 48px);
+		}
+	}
+}
+

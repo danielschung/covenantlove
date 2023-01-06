@@ -1,0 +1,98 @@
+section.results {
+	background-color:$white;
+	height:100vh;
+
+	div.container {
+		display:flex;
+		flex-flow:row wrap;
+		max-width:1600px;
+		padding:0 $padding-xs;
+		margin:0 auto;
+
+		div.card {
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:flex-start;
+			flex-grow:1;
+			flex-shrink:3;
+			flex-wrap:wrap;
+			background-color:$truewhite;
+			padding:$padding-r;
+			border:1px solid $border;
+			margin:auto;
+			max-width:calc(90% / 3);
+			cursor:pointer;
+			@include hover;
+
+			div.top {
+				margin-bottom:1rem;
+				width:100%;
+
+				.speaker {
+					@extend p;
+					@extend .s;
+					display:inline-block;
+					position:relative;
+					padding-left:calc(24px + 10px);
+				}
+
+				.speaker::before {
+					@include icon('assets/pminchung.svg');
+					@include vertical-center;
+					height:$icon-s;
+					width:$icon-s;
+					left:0;
+					cursor:pointer;
+				}
+
+				.date {
+					float:right;
+				}
+			}
+
+			div.middle {
+				.title {
+					margin-bottom:8px;
+				}
+			}
+
+			div.bottom {
+				display:flex;
+				flex-direction:row;
+				align-items:center;
+				margin-top:1.5rem;
+				position:relative;
+
+				.time {
+					@extend p;
+					padding-left:calc(24px + 8px);
+				}
+
+				.time::before {
+					@include icon('assets/icon-button-play.svg');
+					@include vertical-center;
+					height:$icon-s;
+					width:$icon-s;
+					left:0;
+					cursor:pointer;
+				}
+
+				.plays {
+					@extend p;
+					@extend .xs;
+					margin-left:8px;
+				}
+			}
+		}
+
+		div.card:nth-child(1){
+			margin-left: 0;
+		}
+
+		div.card:hover {
+			-webkit-box-shadow:0px 2px 9px 10px #E4E4E4; 
+			box-shadow:0px 2px 9px 0px #E4E4E4;
+		}
+	}
+}

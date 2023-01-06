@@ -16,11 +16,16 @@
 <nav>
 	<div class="logo"></div>
 	<div class="container">
-		<a href="/" class="current">All Sermons</a>
+		<a href="/" class="current link">All Sermons</a>
 		<a href="" class="filter">Sermons by Series</a>
 		<a href="" class="filter">Explore Categories</a>
 		<a href="" class="filter">Sermons by Year</a>
-		<a href="/worship-timebox">Worship Timebox</a>
+		<a href="/worship-timebox" class="link">Worship Timebox</a>
+	</div>
+	<div id="mobile-nav" class="mobile-nav" onclick="mobileNav()">
+		<div class="line"></div>
+		<div class="line"></div>
+		<div class="line"></div>
 	</div>
 </nav>
 
@@ -34,12 +39,12 @@
 
 <section class="search">
 	<div class="search-icon"></div>
-	<input type="search" name="search" class="search" placeholder="All Sermons">
+	<input type="search" name="search" id="search" placeholder="All Sermons">
 </section>
 
 
 
-<section class="results">
+<section class="results" id="results">
 	<div class="container">
 		<div class="card">
 			<div class="top">
@@ -47,7 +52,7 @@
 				<div class="date">May 7, 1993</div>
 			</div>
 			<div class="middle">
-				<h2 class="title">Sermon Title Goes Here and Sometimes It's Long</h2>
+				<h2 class="title">Sermon Title Goes Here and Sometimes It's Long Sermon Title Goes Here</h2>
 				<h3 class="passage">The passage goes here</h3>
 			</div>
 			<div class="bottom">
@@ -91,9 +96,9 @@
 <section id="test"></section>
 
 
-
-<script type="text/javascript" src="./js/main.js"></script>
 <!-- <script type="text/javascript" src="./js/api.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./js/main.js"></script>
 
 </body>
 </html>
