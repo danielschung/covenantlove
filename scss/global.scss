@@ -137,11 +137,6 @@ $icon-s:24px;
 $icon-r:32px;
 $icon-l:48px;
 
-@mixin icon-div($url) {
-	background:url($url) no-repeat center;
-	background-size:100%;
-}
-
 @mixin icon($url) {
 	content:url($url);
 	top:0;
