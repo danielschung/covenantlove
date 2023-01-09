@@ -59,29 +59,62 @@ section.results {
 
 			div.bottom {
 				display:flex;
-				flex-direction:row;
-				align-items:center;
+				flex-flow:row nowrap;
+				align-items:flex-end;
 				margin-top:1.5rem;
 				position:relative;
 
-				.time {
-					@extend p;
-					padding-left:calc(24px + 8px);
+				.left {
+					display:flex;
+					flex-flow:row nowrap;
+					align-items:center;
+
+					.time {
+						@extend p;
+						display:flex;
+						align-items:center;
+					}
+
+					.time::before {
+						@include icon('assets/icon-button-play.svg');
+						height:$icon-s;
+						width:$icon-s;
+						cursor:pointer;
+						padding-right: 8px;
+					}
+
+					.plays {
+						@extend p;
+						@extend .xs;
+						display:flex;
+						margin-left:8px;
+						flex:1 0 auto;
+						align-items:center;
+					}
 				}
 
-				.time::before {
-					@include icon('assets/icon-button-play.svg');
-					@include vertical-center;
-					height:$icon-s;
-					width:$icon-s;
-					left:0;
-					cursor:pointer;
-				}
+				.right {
+					display:flex;
+					justify-content:flex-end;
+					flex-flow: row wrap;
+					flex:2 1 auto;
+					gap:8px;
+					align-content:flex-end;
 
-				.plays {
-					@extend p;
-					@extend .xs;
-					margin-left:8px;
+					.tag {
+						@extend p;
+						@extend .xs;
+						background-color:$lightgrey;
+						padding:3px 8px;
+						border-radius:4px;
+						display:inline-block;
+						@include hover;
+					}
+
+					.tag:hover {
+						background-color:$accent;
+						color:$white;
+					}
 				}
 			}
 		}

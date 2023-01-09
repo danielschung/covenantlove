@@ -23,8 +23,11 @@ const getData = async (request) => {
 			let speaker = data.sermons[i].speaker;
 			let date = data.sermons[i].date;
 			let plays = data.sermons[i].plays;
-			let tags = data.sermons[i].tags;
 			let time = data.sermons[i].time;
+
+			for (let t = 0; t < num; t++) {
+				let tags = data.sermons[i].tags[t];
+			}
 
 			let block = `
 				<div class="card">
@@ -37,8 +40,13 @@ const getData = async (request) => {
 						<h3 class="passage">${passage}</h3>
 					</div>
 					<div class="bottom">
-						<div class="time">0:00 | ${time}</div>
-						<div class="plays">${plays} plays</div>
+						<div class="left">
+							<div class="time">${time}</div>
+							<div class="plays">${time} plays</div>
+						</div>
+						<div class="right">
+							<div class="tag">#${time[0]}</div>
+						</div>
 					</div>
 				</div>
 			`;
@@ -49,10 +57,6 @@ const getData = async (request) => {
 	} catch(error) {
 		console.log(error);
 	}
-}
-
-function createCards() {
-	//write code to create cards after you figure out css
 }
 
 // const addPlay = {
