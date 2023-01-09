@@ -3,18 +3,13 @@ section.results {
 	min-height:calc(100vh - $nav-height);
 	padding-bottom:10rem;
 
-	div.wrapper {
-		max-width:1600px;	
-		margin:0 auto;
-	}
-
 	div.container {
 		display:flex;
 		flex-flow:row wrap;
 		justify-content:flex-start;
 		align-items:stretch;
 		align-content:flex-start;
-		padding:0 $padding-xs;
+		padding:0 $padding-l;
 		gap:25px;
 
 		div.card {
@@ -25,7 +20,7 @@ section.results {
 			padding:$padding-r;
 			border:1px solid $border;
 			cursor:pointer;
-			min-width:350px;
+			min-width:400px;
 			@include hover;
 
 			div.top {
@@ -55,6 +50,8 @@ section.results {
 			}
 
 			div.middle {
+				flex-grow: 2;
+
 				.title {
 					margin-bottom:8px;
 				}
@@ -102,14 +99,8 @@ section.results {
 
 // ------- Mobile -------
 
-// @media only screen and (max-width:1148px) { // 2 columns 
-// 	section.results div.container div.card {
-// 		max-width:50%;
-// 	}
-// }
-
-// @media only screen and (max-width:773px) { // small 
-// 	section.results div.container div.card {
-// 		max-width:100%;
-// 	}
-// }
+@media only screen and (max-width:1000px) { // iPad
+	section.results div.container {
+		padding:0 $padding-s;
+	}
+}
