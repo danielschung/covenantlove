@@ -1,28 +1,31 @@
 section.results {
 	background-color:$white;
-	height:100vh;
+	min-height:calc(100vh - $nav-height);
+	padding-bottom:10rem;
+
+	div.wrapper {
+		max-width:1600px;	
+		margin:0 auto;
+	}
 
 	div.container {
 		display:flex;
 		flex-flow:row wrap;
-		max-width:1600px;
+		justify-content:flex-start;
+		align-items:stretch;
+		align-content:flex-start;
 		padding:0 $padding-xs;
-		margin:0 auto;
+		gap:25px;
 
 		div.card {
 			display:flex;
-			flex-direction:column;
-			justify-content:center;
-			align-items:flex-start;
-			flex-grow:1;
-			flex-shrink:3;
-			flex-wrap:wrap;
+			flex-flow: column nowrap;
+			flex:1 0 30%;
 			background-color:$truewhite;
 			padding:$padding-r;
 			border:1px solid $border;
-			margin:auto;
-			max-width:calc(90% / 3);
 			cursor:pointer;
+			min-width:350px;
 			@include hover;
 
 			div.top {
@@ -96,3 +99,17 @@ section.results {
 		}
 	}
 }
+
+// ------- Mobile -------
+
+// @media only screen and (max-width:1148px) { // 2 columns 
+// 	section.results div.container div.card {
+// 		max-width:50%;
+// 	}
+// }
+
+// @media only screen and (max-width:773px) { // small 
+// 	section.results div.container div.card {
+// 		max-width:100%;
+// 	}
+// }

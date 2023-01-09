@@ -16,8 +16,10 @@ function mobileNav() {
 	}
 }
 
+// ------- 02 Filters -------
 
-// ------- 02 Search -------
+
+// ------- 03 Search -------
 const searchInput = document.getElementById('search');
 
 // search query

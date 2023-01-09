@@ -6,12 +6,16 @@
 03  Spacing
 04  Image
 05  Nav
-06  Search
-07  Cards
+06  Nav
+07  Search
+08  Cards
+09  Mobile
 
 */
 
+
 // ------- 00 Reset ------- 
+
 html, body, h1, h2, h3, h4, h5, p, div, ul, li, span {
   -webkit-font-smoothing: antialiased;
   margin: 0;
@@ -19,7 +23,8 @@ html, body, h1, h2, h3, h4, h5, p, div, ul, li, span {
 }
 
 html {
-	font-size: 16px;
+	font-size:16px;
+	background-color:#FBFBFB;
 }
 
 body {
@@ -48,7 +53,9 @@ div.clear {
 	clear:both;
 }
 
+
 // ------- 01 Colors -------
+
 $black:#313131;
 $darkgrey:#5B5B5B;
 $grey:#ACACAC;
@@ -58,7 +65,9 @@ $white:#FBFBFB;
 $truewhite:#FFFFFF;
 $accent:#0252CA;
 
+
 // ------- 02 Typography -------
+
 @import url('https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap');
 $header-font:'Lora', 'Garamond', 'serif';
 $body-font:'Source Sans Pro', 'Garamond', 'sans-serif';
@@ -123,16 +132,23 @@ a {
   color: $white;
 }
 
+input[type='checkbox'] + label {
+	@extend p;
+}
+
 
 // ------- 03 Spacing -------
+
 $padding-xs:24px;
 $padding-s:32px;
 $padding-r:40px;
+$padding-n:48px;
 $padding-l:64px;
 $padding-xl:80px;
 
 
 // ------- 04 Icons -------
+
 $icon-s:24px;
 $icon-r:32px;
 $icon-l:48px;
@@ -143,11 +159,40 @@ $icon-l:48px;
 }
 
 
-// ------- 05 Nav -------
+// ------- 05 Components -------
+
+input[type="checkbox"] {
+	background-color: blue;
+	height:1rem;
+	width:1rem;
+	margin:0;
+	cursor:pointer;
+}
+
+input[type="checkbox"] + label {
+	line-height:0;
+	padding-left:0.5rem;
+	cursor:pointer;
+}
+
+button {
+	@extend p;
+	background-color:$accent;
+	border:none;
+	border-radius:6px;
+	color:$white;
+	padding:0.5rem 1rem;
+	display:inline-block;
+}
+
+
+// ------- 06 Nav -------
+
 $nav-height:77px;
 
 
-// ------- 06 Search -------
+// ------- 07 Search -------
+
 section {
 	position:relative;
 	top:$nav-height;
@@ -155,12 +200,23 @@ section {
 
 $search-icon-size:48px;
 
+div.black {
+	height:100vh;
+	width:100vw;
+	background-color:$black;
+	position:fixed;
+	z-index:3;
+	opacity:77%;
+	display:none;
+}
 
-// ------- 07 Cards -------
+// ------- 08 Cards -------
+
 $card-margin:25px;
 
 
-// ------- 08 Mobile -------
+// ------- 09 Mobile -------
+
 @media only screen and (max-width:1000px) { // iPad
 	h1 { font-size:2rem; }
 	h2 { font-size:1.5rem; }

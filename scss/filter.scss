@@ -1,0 +1,74 @@
+@mixin dropdown {
+	background-color:$white;
+	width:100%;
+	position:fixed;
+	margin-top:$nav-height;
+	z-index:99;
+	padding:$padding-n;
+	display:flex;
+}
+
+div#series-dropdown {
+	display:flex;
+	flex-flow: row wrap;
+	justify-content:center;
+	gap:7%;
+	top:-50%;
+	@include dropdown;
+
+	div.series {
+		@extend h3;
+		padding-left:calc(50px + 13px);
+		position:relative;
+		cursor:pointer;
+		// flex:1 0 auto;
+
+		span {
+			@extend p;
+			display:block;
+		}
+	}
+
+	div.heart-motives:before {
+		@include icon('assets/icon-heart.svg');
+		position:absolute;
+		left:0;
+
+	}
+
+	div.romans:before {
+		@include icon('assets/icon-romans.svg');
+		position:absolute;
+		left:0;
+	}
+}
+
+div#categories-dropdown {
+	@include dropdown;
+	flex-flow: column wrap;
+	gap:1rem;
+	flex:2 1 100%;
+	height:70%;
+	top:-70%;
+	padding-bottom:117px;
+
+	div.checkbox {
+		display:flex;
+		align-items:center;
+	}
+}
+
+button {
+	position:absolute;
+	bottom:$padding-n;
+	right:$padding-n;
+}
+
+
+
+// ------- 02 mobile nav -------
+@media only screen and (max-width:1200px) { // smaller browser
+	div#categories {
+		height:100%;
+	}
+}

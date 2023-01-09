@@ -56,6 +56,12 @@ nav {
 			right:-5px;
 		}
 
+		a.filter.active::after {
+			@include icon('assets/icon-arrow-up.svg');
+			@include vertical-center;
+			right:-5px;
+		}
+
 		a:hover {
 			border-bottom:2px solid $accent;
 		}

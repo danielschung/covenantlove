@@ -6,5 +6,6 @@ sass --watch scss/export.scss:covlove.css --style compressed
 
 @import 'global';
 @import 'nav';
+@import 'filter';
 @import 'search';
 @import 'cards';

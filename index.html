@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="covlove.css">
 </head>
 <body>
+<div class="black"></div>
 
 
 
@@ -17,9 +18,9 @@
 	<div class="logo"></div>
 	<div class="container">
 		<a href="/" class="current link">All Sermons</a>
-		<a href="" class="filter">Sermons by Series</a>
-		<a href="" class="filter">Explore Categories</a>
-		<a href="" class="filter">Sermons by Year</a>
+		<a href="" class="filter series">Sermons by Series</a>
+		<a href="" class="filter categories">Explore Categories</a>
+		<a href="" class="filter year">Sermons by Year</a>
 		<a href="/worship-timebox" class="link">Worship Timebox</a>
 	</div>
 	<div id="mobile-nav" class="mobile-nav" onclick="mobileNav()">
@@ -29,11 +30,25 @@
 	</div>
 </nav>
 
-<div class="categories">
-	<div class="container">
-		
+
+
+<div class="dropdown" id="series-dropdown">
+	<div class="series heart-motives">Heart Motives
+		<span>Why do we do what we do?</span>
+	</div>
+	<div class="series romans">Romans Series
+		<span>Popular exposition preached from 2007-2010</span>
 	</div>
 </div>
+
+<div class="dropdown" id="categories-dropdown">
+	<button id=filterButton>Search</button>
+</div>
+
+<div class="dropdown" id="year-dropdown">
+	<div></div>
+</div>
+
 
 
 
@@ -45,11 +60,13 @@
 
 
 <section class="results" id="results">
+
+<div class="wrapper">
 	<div class="container">
 		<div class="card">
 			<div class="top">
 				<div class="speaker">Rev. Min Joshua Chung</div>
-				<div class="date">May 7, 1993</div>
+				<div class="date">December 7, 1993</div>
 			</div>
 			<div class="middle">
 				<h2 class="title">Sermon Title Goes Here and Sometimes It's Long Sermon Title Goes Here</h2>
@@ -88,7 +105,65 @@
 				<div class="plays">101 plays</div>
 			</div>
 		</div>
+		<div class="card">
+			<div class="top">
+				<div class="speaker">Rev. Min Joshua Chung</div>
+				<div class="date">May 7, 1993</div>
+			</div>
+			<div class="middle">
+				<h2 class="title">Sermon Title Goes Here and Sometimes It's Long</h2>
+				<h3 class="passage">The passage goes here</h3>
+			</div>
+			<div class="bottom">
+				<div class="time">0:00 | 43:32</div>
+				<div class="plays">101 plays</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="top">
+				<div class="speaker">Rev. Min Joshua Chung</div>
+				<div class="date">May 7, 1993</div>
+			</div>
+			<div class="middle">
+				<h2 class="title">Sermon Title Goes Here and Sometimes It's Long</h2>
+				<h3 class="passage">The passage goes here</h3>
+			</div>
+			<div class="bottom">
+				<div class="time">0:00 | 43:32</div>
+				<div class="plays">101 plays</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="top">
+				<div class="speaker">Rev. Min Joshua Chung</div>
+				<div class="date">May 7, 1993</div>
+			</div>
+			<div class="middle">
+				<h2 class="title">Sermon Title Goes Here and Sometimes It's Long</h2>
+				<h3 class="passage">The passage goes here</h3>
+			</div>
+			<div class="bottom">
+				<div class="time">0:00 | 43:32</div>
+				<div class="plays">101 plays</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="top">
+				<div class="speaker">Rev. Min Joshua Chung</div>
+				<div class="date">May 7, 1993</div>
+			</div>
+			<div class="middle">
+				<h2 class="title">Sermon Title Goes Here and Sometimes It's Long</h2>
+				<h3 class="passage">The passage goes here</h3>
+			</div>
+			<div class="bottom">
+				<div class="time">0:00 | 43:32</div>
+				<div class="plays">101 plays</div>
+			</div>
+		</div>
 	</div>
+</div>
+
 </section>
 
 
@@ -99,6 +174,7 @@
 <!-- <script type="text/javascript" src="./js/api.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="./js/filter.js"></script>
 
 </body>
 </html>
