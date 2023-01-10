@@ -23,11 +23,8 @@ const getData = async (request) => {
 			let speaker = data.sermons[i].speaker;
 			let date = data.sermons[i].date;
 			let plays = data.sermons[i].plays;
+			let tags = data.sermons[i].tags;
 			let time = data.sermons[i].time;
-
-			for (let t = 0; t < num; t++) {
-				let tags = data.sermons[i].tags[t];
-			}
 
 			let block = `
 				<div class="card">
@@ -42,16 +39,30 @@ const getData = async (request) => {
 					<div class="bottom">
 						<div class="left">
 							<div class="time">${time}</div>
-							<div class="plays">${time} plays</div>
-						</div>
-						<div class="right">
-							<div class="tag">#${time[0]}</div>
-						</div>
+							<div class="plays">${plays} plays</div>
+						</div>	
+						<div class="right"></div>
 					</div>
 				</div>
 			`;
 
 			cardContainer.innerHTML += block;
+
+			console.log(tags[0]);
+
+			for (let t = 0; t < tags.length; t++) {
+
+				let tagContainer = cardContainer.childNodes[1].childNodes[5].childNodes[3];
+				let tag = tags[t];
+
+				// console.log(tag[0]);
+
+				let tagBlock = `
+					<div class="tag">${tag}</div>
+				`;
+
+				tagContainer.innerHTML += tagBlock;
+			};
 		}
 
 	} catch(error) {
