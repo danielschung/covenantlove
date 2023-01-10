@@ -26,43 +26,25 @@ const getData = async (request) => {
 			let tags = data.sermons[i].tags;
 			let time = data.sermons[i].time;
 
-			let block = `
-				<div class="card">
-					<div class="top">
-						<div class="speaker">${speaker}</div>
-						<div class="date">${date}</div>
-					</div>
-					<div class="middle">
-						<h2 class="title">${title}</h2>
-						<h3 class="passage">${passage}</h3>
-					</div>
-					<div class="bottom">
-						<div class="left">
-							<div class="time">${time}</div>
-							<div class="plays">${plays} plays</div>
-						</div>	
-						<div class="right"></div>
-					</div>
-				</div>
-			`;
+			let block = `<div class="card"><div class="top"><div class="speaker">${speaker}</div><div class="date">${date}</div></div><div class="middle"><h2 class="title">${title}</h2><h3 class="passage">${passage}</h3></div><div class="bottom"><div class="left"><div class="time">${time}</div><div class="plays">${plays}plays</div></div><div class="tags"></div></div></div>`;
 
 			cardContainer.innerHTML += block;
 
-			console.log(tags[0]);
-
 			for (let t = 0; t < tags.length; t++) {
 
-				let tagContainer = cardContainer.childNodes[1].childNodes[5].childNodes[3];
+				let tagContainer = cardContainer.children[i].children[2].children[1];
 				let tag = tags[t];
-
-				// console.log(tag[0]);
 
 				let tagBlock = `
 					<div class="tag">${tag}</div>
 				`;
 
+				console.log(tagContainer);
+
 				tagContainer.innerHTML += tagBlock;
 			};
+
+			// console.log(`card ${i} complete`);
 		}
 
 	} catch(error) {
