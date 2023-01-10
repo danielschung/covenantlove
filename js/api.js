@@ -26,7 +26,24 @@ const getData = async (request) => {
 			let tags = data.sermons[i].tags;
 			let time = data.sermons[i].time;
 
-			let block = `<div class="card"><div class="top"><div class="speaker">${speaker}</div><div class="date">${date}</div></div><div class="middle"><h2 class="title">${title}</h2><h3 class="passage">${passage}</h3></div><div class="bottom"><div class="left"><div class="time">${time}</div><div class="plays">${plays}plays</div></div><div class="tags"></div></div></div>`;
+			let block = `
+				<div class="card">
+					<div class="top">
+						<div class="speaker">${speaker}</div>
+						<div class="date">${date}</div>
+					</div>
+					<div class="middle">
+						<h2 class="title">${title}</h2>
+						<h3 class="passage">${passage}</h3>
+					</div>
+					<div class="bottom">
+						<div class="left">
+							<div class="time">${time}</div>
+							<div class="plays">${plays} plays</div>
+						</div>
+						<div class="tags"></div>
+					</div>
+				</div>`;
 
 			cardContainer.innerHTML += block;
 
