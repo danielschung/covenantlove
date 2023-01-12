@@ -20,7 +20,7 @@ section.results {
 			padding:$padding-r;
 			border:1px solid $border;
 			cursor:pointer;
-			min-width:21.875rem; // 350px
+			min-width:24.375rem; // 390px
 			@include hover;
 
 			div.top {
@@ -149,12 +149,6 @@ section.results {
 			border-left:none;
 			border-right:none;
 		}
-	}
-}
-
-@media only screen and (max-width:414px) { // small mobile
-	html {
-		font-size:12px;
 	}
 }
 
