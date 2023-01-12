@@ -40,8 +40,8 @@ nav {
 		}
 
 		a.filter {
-			padding-left:24px;
-			padding-right:24px;
+			padding-left:$padding-xs;
+			padding-right:$padding-xs;
 		}
 
 		a.filter::before {
@@ -71,7 +71,7 @@ nav {
 	div.mobile-nav {
 		display:none;
 		height:14px;
-		width:24px;
+		width:20px;
 		@include vertical-center;
 		right:$padding-xs;
 		@include hover;

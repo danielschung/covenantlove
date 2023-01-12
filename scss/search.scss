@@ -38,13 +38,6 @@ section.search {
 		width:$icon-l;
 		@include icon('assets/icon-x.svg');
 	}
-
-	// div#search-clear {
-	// 	@include icon('assets/icon-x.svg');
-	// 	height:$icon-l;
-	// 	width:$icon-l;
-	// 	display:none;
-	// }
 }
 
 @media only screen and (max-width:1000px) { // iPad
@@ -53,8 +46,28 @@ section.search {
 	}
 
 	section.search div.search-icon,
-	section.search div#search-clear {
+	section.search div#search-clear,
+	section.search input[type="search"]::-webkit-search-cancel-button {
 		height:$icon-r;
 		width:$icon-r;
+	}
+}
+
+@media only screen and (max-width:490px) { // mobile 
+	section.search {
+		padding:$padding-s;
+	}
+
+	section.search div.search-icon,
+	section.search div#search-clear,
+	section.search input[type="search"]::-webkit-search-cancel-button {
+		height:$icon-s;
+		width:$icon-s;
+	}
+}
+
+@media only screen and (max-width:290px) { // x-small mobile 
+	section.search {
+		padding:$padding-xs;
 	}
 }

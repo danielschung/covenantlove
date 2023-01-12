@@ -139,16 +139,19 @@ input[type='checkbox'] + label {
 
 // ------- 03 Spacing -------
 
-$padding-xs:24px;
-$padding-s:32px;
-$padding-r:40px;
-$padding-n:48px;
-$padding-l:64px;
-$padding-xl:80px;
+$padding-xs:1.5rem; // 24px
+$padding-s:2rem; // 32px
+$padding-r:2.5rem; // 40px
+$padding-n:3rem; // 48px
+$padding-l:4rem; // 64px
+$padding-xl:5rem; // 80px
 
 
 // ------- 04 Icons -------
 
+// $icon-s:1.5rem; // 24px
+// $icon-r:2rem; // 32px
+// $icon-l:3rem; // 48px
 $icon-s:24px;
 $icon-r:32px;
 $icon-l:48px;
@@ -188,7 +191,7 @@ button {
 
 // ------- 06 Nav -------
 
-$nav-height:77px;
+$nav-height:4.8125rem; // 77px
 
 
 // ------- 07 Search -------
@@ -198,7 +201,7 @@ section {
 	top:$nav-height;
 }
 
-$search-icon-size:48px;
+$search-icon-size:3rem; // 48px
 
 div.black {
 	height:100vh;
@@ -212,7 +215,7 @@ div.black {
 
 // ------- 08 Cards -------
 
-$card-margin:25px;
+$card-margin:1.5625rem; // 25px
 
 
 // ------- 09 Mobile -------

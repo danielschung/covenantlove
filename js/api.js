@@ -52,11 +52,7 @@ const getData = async (request) => {
 				let tagContainer = cardContainer.children[i].children[2].children[1];
 				let tag = tags[t];
 
-				let tagBlock = `
-					<div class="tag">${tag}</div>
-				`;
-
-				console.log(tagContainer);
+				let tagBlock = `<div class="tag">${tag}</div>`;
 
 				tagContainer.innerHTML += tagBlock;
 			};

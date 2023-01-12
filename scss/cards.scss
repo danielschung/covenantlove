@@ -10,7 +10,7 @@ section.results {
 		align-items:stretch;
 		align-content:flex-start;
 		padding:0 $padding-l;
-		gap:25px;
+		gap:$padding-xs;
 
 		div.card {
 			display:flex;
@@ -20,7 +20,7 @@ section.results {
 			padding:$padding-r;
 			border:1px solid $border;
 			cursor:pointer;
-			min-width:400px;
+			min-width:21.875rem; // 350px
 			@include hover;
 
 			div.top {
@@ -53,7 +53,7 @@ section.results {
 				flex-grow: 2;
 
 				.title {
-					margin-bottom:8px;
+					margin-bottom:0.5rem;
 				}
 			}
 
@@ -76,18 +76,18 @@ section.results {
 					}
 
 					.time::before {
-						@include icon('assets/icon-button-play.svg');
+						@include icon('assets/icon-button-play.svg');	
 						height:$icon-s;
 						width:$icon-s;
 						cursor:pointer;
-						padding-right: 8px;
+						padding-right:8px;
 					}
 
 					.plays {
 						@extend p;
 						@extend .xs;
 						display:flex;
-						margin-left:8px;
+						margin-left:0.5rem;
 						flex:1 0 auto;
 						align-items:center;
 					}
@@ -98,7 +98,7 @@ section.results {
 					justify-content:flex-end;
 					flex-flow: row wrap;
 					flex:2 1 auto;
-					gap:8px;
+					gap:0.5rem;
 					align-content:flex-end;
 
 					.tag {
@@ -135,5 +135,28 @@ section.results {
 @media only screen and (max-width:1000px) { // iPad
 	section.results div.container {
 		padding:0 $padding-s;
+	}
+}
+
+@media only screen and (max-width:490px) { // mobile
+	section.results div.container {
+		justify-content: center;
+		padding:0 $padding-xs;
+		gap:12px;
+
+		div.card {
+			padding:$padding-xs;
+		}
+	}
+}
+
+@media only screen and (max-width:414px) { // small mobile
+	html {
+		font-size:12px;
+	}
+
+	section.results div.container div.card {
+		padding:1rem;
+		min-width:250px;
 	}
 }
