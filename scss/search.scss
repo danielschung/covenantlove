@@ -38,6 +38,14 @@ section.search {
 		width:$icon-l;
 		@include icon('assets/icon-x.svg');
 	}
+
+	input::-webkit-contacts-auto-fill-button {
+	  visibility:hidden;
+	  display:none !important;
+	  pointer-events:none;
+	  position:absolute;
+	  right:0;
+	}
 }
 
 @media only screen and (max-width:1000px) { // iPad
