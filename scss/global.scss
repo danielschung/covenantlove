@@ -24,7 +24,7 @@ html, body, h1, h2, h3, h4, h5, p, div, ul, li, span {
 
 html {
 	font-size:16px;
-	background-color:#FBFBFB;
+	background-color:#FFFFFF;
 }
 
 body {
@@ -59,10 +59,10 @@ div.clear {
 $black:#313131;
 $darkgrey:#5B5B5B;
 $grey:#ACACAC;
-$border:#DCDCDC;
-$lightgrey:#F2F2F2;
-$white:#FBFBFB;
-$truewhite:#FFFFFF;
+$lightgrey:#DCDCDC;
+$border:#F2F2F2;
+$cloud:#FBFBFB;
+$white:#FFFFFF;
 $accent:#0252CA;
 
 
@@ -129,7 +129,7 @@ a {
 
 ::selection {
   background: $accent;
-  color: $white;
+  color: $cloud;
 }
 
 input[type='checkbox'] + label {
@@ -180,7 +180,7 @@ button {
 	background-color:$accent;
 	border:none;
 	border-radius:6px;
-	color:$white;
+	color:$cloud;
 	padding:0.5rem 1rem;
 	display:inline-block;
 }
@@ -223,10 +223,15 @@ $card-margin:1.5625rem; // 25px
 	h3 { font-size:1rem; }
 }
 
-@media only screen and (max-width:414px) { // small mobile
+@media only screen and (max-width:490px) { // mobile
 	html {
-		// font-size:14px;	
+		background-color:$cloud;
+		overflow-x:hidden;
 	}
+}
+
+@media only screen and (max-width:390px) { // x-small mobile 
+	h1 { font-size:1.5rem; }
 }
 
 

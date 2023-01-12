@@ -1,5 +1,4 @@
 section.results {
-	background-color:$white;
 	min-height:calc(100vh - $nav-height);
 	padding-bottom:10rem;
 
@@ -16,7 +15,7 @@ section.results {
 			display:flex;
 			flex-flow: column nowrap;
 			flex:1 0 30%;
-			background-color:$truewhite;
+			background-color:$white;
 			padding:$padding-r;
 			border:1px solid $border;
 			cursor:pointer;
@@ -104,7 +103,7 @@ section.results {
 					.tag {
 						@extend p;
 						@extend .xs;
-						background-color:$lightgrey;
+						background-color:$border;
 						padding:3px 8px;
 						border-radius:4px;
 						display:inline-block;
@@ -113,7 +112,7 @@ section.results {
 
 					.tag:hover {
 						background-color:$accent;
-						color:$white;
+						color:$cloud;
 					}
 				}
 			}
@@ -124,8 +123,8 @@ section.results {
 		}
 
 		div.card:hover {
-			-webkit-box-shadow:0px 2px 9px 10px #E4E4E4; 
-			box-shadow:0px 2px 9px 0px #E4E4E4;
+			-webkit-box-shadow:0px 2px 9px 10px #ECECEC; 
+			box-shadow:0px 2px 9px 0px #ECECEC;
 		}
 	}
 }
@@ -139,6 +138,10 @@ section.results {
 }
 
 @media only screen and (max-width:490px) { // mobile
+	section.results {
+		padding-top:1rem;
+	}
+
 	section.results div.container {
 		justify-content:center;
 		padding:0;
@@ -152,7 +155,7 @@ section.results {
 	}
 }
 
-@media only screen and (max-width:290px) { // x-small mobile 
+@media only screen and (max-width:390px) { // x-small mobile 
 	section.results div.container div.card {
 		padding:1rem;
 		min-width:250px;

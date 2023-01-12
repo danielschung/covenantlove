@@ -11,7 +11,6 @@ section.search {
 		@extend h1;
 		@include hover;
 		border:none;
-		background-color:$white;
 		width:calc(100% - #{$search-icon-size} - 158px);
 		flex:10 1 50%;
 	}
@@ -25,7 +24,7 @@ section.search {
 	}
 
 	input#search:focus::placeholder {
-		color:$border;
+		color:$lightgrey;
 	}
 
 	div.search-icon {
@@ -62,6 +61,8 @@ section.search {
 @media only screen and (max-width:490px) { // mobile 
 	section.search {
 		padding:$padding-s;
+		// background-color:$white;
+		border-bottom:1px solid $border;
 	}
 
 	section.search div.search-icon,
@@ -72,7 +73,7 @@ section.search {
 	}
 }
 
-@media only screen and (max-width:290px) { // x-small mobile 
+@media only screen and (max-width:390px) { // x-small mobile 
 	section.search {
 		padding:$padding-xs;
 	}
