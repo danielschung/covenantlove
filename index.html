@@ -10,10 +10,15 @@
 	<link rel="stylesheet" type="text/css" href="covlove.css">
 </head>
 <body>
-<div class="black"></div>
 
 
 
+<!-- Overlay -->
+<div class="overlay"></div>
+
+
+
+<!-- Nav -->
 <nav>
 	<div class="logo"></div>
 	<div class="container">
@@ -23,20 +28,17 @@
 		<a href="" class="filter year">Sermons by Year</a>
 		<a href="/worship-timebox" class="link">Worship Timebox</a>
 	</div>
-	<div id="mobile-nav" class="mobile-nav" onclick="mobileNav()">
-		<div class="line"></div>
-		<div class="line"></div>
-		<div class="line"></div>
-	</div>
+	<div id="mobile-nav" class="mobile-nav" onclick="mobileNav()"></div>
 </nav>
 
 
 
+<!-- Desktop Filters in Nav -->
 <div class="dropdown" id="series-dropdown">
-	<div class="series heart-motives">Heart Motives
+	<div class="heart-motives">Heart Motives
 		<span>Why do we do what we do?</span>
 	</div>
-	<div class="series romans">Romans Series
+	<div class="romans">Romans Series
 		<span>Popular exposition preached from 2007-2010</span>
 	</div>
 </div>
@@ -45,13 +47,33 @@
 	<button id=filterButton>Search</button>
 </div>
 
-<div class="dropdown" id="year-dropdown">
-	<div></div>
+<div class="dropdown" id="year-dropdown"></div>
+
+
+
+<!-- Mobile Filter Screen -->
+<div class="mobile-filter-screen" id="mobile-filter-screen">
+	<div class="close"></div>
+	<div class="container top">
+		<a href="/" class="current link">All Sermons</a>
+		<a href="/worship-timebox" class="link">Worship Timebox</a>
+	</div>
+	<div class="container middle">
+		<a href="" class="filter series">Sermons by Series</a>
+		<div class="accordion" id="accordion-series"></div>
+		<a href="" class="filter categories">Explore Categories</a>
+		<div class="accordion" id="accordion-categories"></div>
+		<a href="" class="filter year">Sermons by Year</a>
+		<div class="accordion" id="accordion-year"></div>
+	</div>
+	<div class="container bottom">
+		
+	</div>
 </div>
 
 
 
-
+<!-- Searchbar -->
 <section class="search">
 	<div class="search-icon"></div>
 	<input type="search" name="search" id="search" placeholder="All Sermons" enterkeyhint="search">
@@ -59,13 +81,11 @@
 
 
 
+<!-- Results -->
 <section class="results" id="results">
 	<div class="container"></div>
 </section>
 
-
-
-<section id="test"></section>
 
 
 <script type="text/javascript" src="./js/api.js"></script>

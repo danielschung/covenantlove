@@ -3,7 +3,7 @@
 	width:100%;
 	position:fixed;
 	margin-top:$nav-height;
-	z-index:99;
+	z-index:2;
 	padding:$padding-n;
 	display:flex;
 }
@@ -13,15 +13,14 @@ div#series-dropdown {
 	flex-flow: row wrap;
 	justify-content:center;
 	gap:7%;
-	top:-50%;
+	top:-100%;
 	@include dropdown;
 
-	div.series {
+	div {
 		@extend h3;
 		padding-left:calc(50px + 13px);
 		position:relative;
 		cursor:pointer;
-		// flex:1 0 auto;
 
 		span {
 			@extend p;
@@ -49,7 +48,7 @@ div#categories-dropdown {
 	gap:1rem;
 	flex:2 1 100%;
 	height:70%;
-	top:-70%;
+	top:-100%;
 	padding-bottom:7.3125rem; // 117px 
 
 	div.checkbox {
@@ -62,6 +61,21 @@ button {
 	position:absolute;
 	bottom:$padding-n;
 	right:$padding-n;
+}
+
+div#year-dropdown {
+	@include dropdown;
+	flex-flow: column wrap;
+	gap:1rem;
+	flex:2 1 100%;
+	height:30%;
+	top:-100%;
+	text-align:center;
+	@include hover;
+
+	a:hover {
+		color:$accent;
+	}
 }
 
 

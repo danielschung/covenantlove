@@ -200,12 +200,12 @@ section {
 
 $search-icon-size:3rem; // 48px
 
-div.black {
+div.overlay {
 	height:100vh;
 	width:100vw;
 	background-color:$black;
 	position:fixed;
-	z-index:3;
+	z-index:1;
 	opacity:77%;
 	display:none;
 }

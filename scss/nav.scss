@@ -1,12 +1,66 @@
+// ------- reusable mixins -------
+
+@mixin nav-links {  // @include on container
+	a {
+		line-height:0;
+		margin-left:48px;
+		padding:calc(#{$nav-height} * 0.37) 0;
+		border-bottom:2px solid rgba(0, 0, 0, 0);
+		position:relative;
+		@include hover;
+	}
+
+	a:nth-child(1) {
+		margin-left:0;
+	}
+
+	a.current {
+		color:$accent;
+		border-bottom:2px solid $accent;
+	}
+
+	a.filter {
+		padding-left:$padding-xs;
+		padding-right:$padding-xs;
+	}
+
+	a.filter.active {
+		border-bottom:2px solid $accent;
+	}
+
+	a.filter::before {
+		@include icon('assets/icon-filter.svg');
+		left:-5px;
+		@include vertical-center;
+	}
+
+	a.filter::after {
+		@include icon('assets/icon-arrow-down.svg');
+		@include vertical-center;
+		right:-5px;
+	}
+
+	a.filter.active::after {
+		@include icon('assets/icon-arrow-up.svg');
+		@include vertical-center;
+		right:-5px;
+	}
+
+	a:hover {
+		border-bottom:2px solid $accent;
+	}
+}
+
+
+// ------- desktop nav -------
+
 nav {
 	height:$nav-height;
 	background-color:$white;
 	position:fixed;
 	width:100vw;
 	border-bottom:1px solid $border;
-	// -webkit-box-shadow:0px 2px 9px 10px #E4E4E4; 
-	// box-shadow:0px 2px 9px 0px #E4E4E4;
-	z-index:100;
+	z-index:3;
 
 	div.logo {
 		height:40px;
@@ -20,125 +74,32 @@ nav {
 
 	div.container {
 		@include vertical-center;
+		@include nav-links;
 		right:$padding-xs;
+	}
 
-		a {
-			line-height:0;
-			margin-left:48px;
-			padding:calc(#{$nav-height} * 0.37) 0;
-			border-bottom:2px solid rgba(0, 0, 0, 0);
-			position:relative;
-			@include hover;
-		}
-
-		a:nth-child(1) {
-			margin-left:0;
-		}
-
-		a.current {
-			color:$accent;
-			border-bottom:2px solid $accent;
-		}
-
-		a.filter {
-			padding-left:$padding-xs;
-			padding-right:$padding-xs;
-		}
-
-		a.filter::before {
-			@include icon('assets/icon-filter.svg');
-			left:-5px;
-			@include vertical-center;
-		}
-
-		a.filter::after {
-			@include icon('assets/icon-arrow-down.svg');
-			@include vertical-center;
-			right:-5px;
-		}
-
-		a.filter.active::after {
-			@include icon('assets/icon-arrow-up.svg');
-			@include vertical-center;
-			right:-5px;
-		}
-
-		a:hover {
-			border-bottom:2px solid $accent;
-		}
-
+	div.container.mobile {
+		display:none;
 	}
 
 	div.mobile-nav {
+		@include icon('assets/icon-nav.svg');
 		display:none;
 		height:14px;
 		width:20px;
 		@include vertical-center;
 		right:$padding-xs;
 		@include hover;
-
-		div.line {
-			background-color:$black;
-			height:2px;
-			width:100%;
-			border-radius:4px;
-			position:absolute;
-		}
-
-		div.line:nth-child(2) {
-			top:calc(50% - 1px);
-		}
-		div.line:nth-child(3) {
-			bottom:0;
-		}	
-	}
-
-	div.mobile-nav:hover {
-		height:18px;
-	}
-
-	div.mobile-nav.x {
-		height:18px;
-
-		div.line:nth-child(1) {
-			animation-name:top;
-			animation-duration:100ms;
-			animation-iteration-count:1;
-			animation-fill-mode:forwards;
-		}
-
-		div.line:nth-child(2) {
-			animation-name:middle;
-			animation-duration:100ms;
-			animation-iteration-count:1;
-			animation-fill-mode:forwards;
-		}
-
-		div.line:nth-child(3) {
-			animation-name:bottom;
-			animation-duration:100ms;
-			animation-iteration-count:1;
-			animation-fill-mode:forwards;
-		}
-	}
-
-	@keyframes top {
-		0% { transform:rotate(0deg); top:0; }
-		100% { transform:rotate(45deg); top:calc(50% - 1px); }
-	}
-
-	@keyframes middle {
-		0% { width: 100%; }
-		100% { width:0; }
-	}
-
-	@keyframes bottom {
-		0% { transform:rotate(0deg); }
-		100% { transform:rotate(-45deg); bottom:calc(50% - 1px); }
 	}
 }
 
-// ------- 02 mobile nav -------
+
+// ------- mobile nav -------
+
+div.mobile-filter-screen {
+	display:none;
+}
+
 @media only screen and (max-width:1200px) { // smaller browser
 	nav div.mobile-nav {
 		display:inline-block;
@@ -147,26 +108,55 @@ nav {
 	}
 
 	nav div.container {
-		background-color:$cloud;
-		padding:calc(#{$padding-s} + 24px) $padding-s $padding-s $padding-s;
-		position:fixed;
-		height:100vh;
-		width:100vw;
-		left:100vw;
-		z-index:10;
 		display:none;
+	}
 
-		a {
-			display:block;
-			width:130px;
-			margin-left:0;
-			text-align:center;
-			left:calc(100% - 178px);
+	div#mobile-filter-screen {
+		background-color:$cloud;
+		border-radius:16px 16px 0 0;
+		height:73%;
+		width:100%;
+		position:fixed;
+		z-index:3;
+		bottom:-100%;
+		padding:$padding-l;
+		display:flex;
+		flex-flow: column nowrap;
+		gap:1.75rem;
+
+		div.close {
+			@include icon('assets/icon-xs.svg');
+			height:1rem;
+			width:1rem;
+			position:absolute;
+			top:2.5rem;
+			right:2.5rem;
 		}
 
-		a.link {
-			width:calc(130px + 48px);
+
+		div.container {
+			@include nav-links;
+			display:flex;
+
+			a {
+				margin:0;
+			}
+		}
+
+		div.top {
+			margin:0 auto;
+			flex-flow: row nowrap;
+			align-items:center;
+			gap:2.5rem;
+		}
+
+		div.middle {
+			flex-flow: column nowrap;
+
 		}
 	}
+
+	div.overlay { z-index:2; }
+	nav { z-index:1; }
 }
 

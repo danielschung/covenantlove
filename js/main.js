@@ -5,14 +5,17 @@ console.log('main.js works');
 
 function mobileNav() {
 	let navButton = document.getElementById('mobile-nav');
-	let links = navButton.previousElementSibling;
+	let screen = document.getElementById('mobile-filter-screen');
+	let backdrop = document.querySelector('div.overlay');
 
 	if ( !$(navButton).hasClass('x') ) {
 		$(navButton).addClass('x');
-		$(links).fadeIn().animate({ left:'0' }, '200ms');
+		$(backdrop).fadeIn(300);
+		$(screen).fadeIn().animate({ bottom:'0' }, '300ms');
 	} else {
 		$(navButton).removeClass('x');
-		$(links).fadeIn().animate({ left:'100vw' }, '200ms');
+		$(backdrop).fadeOut(300);
+		$(screen).fadeIn().animate({ bottom:'-100vw' }, '300ms');
 	}
 }
 

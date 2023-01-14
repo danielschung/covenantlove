@@ -5,7 +5,6 @@ section.search {
 	flex-flow:row nowrap;
 	align-items:center;
 	gap:1rem;
-	z-index:1;
 
 	input#search {
 		@extend h1;
