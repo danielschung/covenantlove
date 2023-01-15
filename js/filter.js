@@ -6,14 +6,13 @@ const categories = [
 	'abuse','alcohol','anointing','assurance','authority','bible','blessings','character','christian life','church','committment','community','compromise','conflicts','core values','counseling','cross','current issues','dating','depression','discernment','discipleship','discouragement','dreams','easter','end times','evangelism','faith','faithfulness','family','fasting','fear','first love','forgiveness','freedom','friendship','future','Gods will','good friday','gospel','grace','gratitude','growth','guidance','habits','happiness','hardships','healing','heart motives','hell','Holy Spirit','humility','hunger','j-gen','joy','justice','justification','leadership','lock-in','loneliness','love','marriage','maturity','meditation','mentoring','metoo','missions','money','obedience','parenting','passover','perseverance','planning','politics','pornography','prayer','pride','provision','purpose','quiet time','racism','reconciliation','repentance','restoration','resurrection','revenge','revival','salvation','servanthood','serving','sex','sin','social justice','sovereignty','spiritual gifts','spiritual warfare','stewardship','temptation','thanksgiving','training','tribulation','unity','victim','victory','vision','word','worship'
 ]
 
-const series = ['Romans Series','John Series']
-
 const years = [
 	'1993','1994','1995','1996','1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2013','2014','2015','2016','2017','2018','2019'
 ]
 
 
 // Populate Categories Container
+
 function populateCategoriesDesktop() {
 	const categoriesDropdown = document.getElementById('categories-dropdown');
 	for (let i = 0; i < categories.length; i++) {
@@ -28,11 +27,21 @@ function populateCategoriesDesktop() {
 }
 
 function populateCategoriesMobile() {
-
+	const categoriesAccordion = document.getElementById('categories-accordion');
+	for (let i = 0; i < categories.length; i++) {
+		let block = `
+			<div class="checkbox">
+				<input type="checkbox" name="${categories[i]}" id="${categories[i]}" value="${categories[i]}">
+				<label for="${categories[i]}">${categories[i]}</label>
+			</div>
+		`;
+		categoriesAccordion.innerHTML += block;
+	}
 }
 
 
 // Populate Year Container
+
 function populateYearsDesktop() {
 	const yearDropdown = document.getElementById('year-dropdown');
 	for (let i = 0; i < years.length; i++) {
@@ -40,6 +49,19 @@ function populateYearsDesktop() {
 			<a href="" class="year">${years[i]}</a>
 		`;
 		yearDropdown.innerHTML += block;
+	}
+}
+
+function populateYearsMobile() {
+	const yearAccordion = document.getElementById('year-accordion');
+	for (let i = 0; i < years.length; i++) {
+		let block = `
+			<div class="checkbox">
+				<input type="checkbox" name="${years[i]}" id="${years[i]}" value="${years[i]}">
+				<label for="${years[i]}">${years[i]}</label>
+			</div>
+		`;
+		yearAccordion.innerHTML += block;
 	}
 }
 
@@ -92,7 +114,32 @@ function desktopFilters() {
 }
 
 function mobileFilters(filter) {
+	let buttons = document.querySelectorAll('#mobile-filter-screen a.filter');
 
+	const on = (x) => {
+		$(x).slideDown(300);
+		$(x).css({ display:'flex'});
+	}
+
+	const off = (x) => {
+		$(x).slideUp(300);
+	}
+
+
+	for (let b = 0; b < buttons.length; b++) {
+		buttons[b].onclick = function(e) {
+			e.preventDefault();
+			let accordion = this.nextElementSibling;
+
+			if ( !$(buttons[b]).hasClass('active') ) {
+				$(this).addClass('active');
+				on(accordion);
+			} else {
+				$(this).removeClass('active');
+				off(accordion);
+			}
+		}
+	}
 }
 
 
@@ -100,6 +147,9 @@ function mobileFilters(filter) {
 
 if (window.innerWidth < 1200) {
 	// Mobile
+	populateCategoriesMobile();
+	populateYearsMobile();
+	mobileFilters();
 
 } else {
 	// Desktop

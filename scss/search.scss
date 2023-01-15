@@ -12,6 +12,7 @@ section.search {
 		border:none;
 		width:calc(100% - #{$search-icon-size} - 158px);
 		flex:10 1 50%;
+		background-color:transparent;
 	}
 
 	input#search::placeholder {

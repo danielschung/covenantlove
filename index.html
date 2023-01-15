@@ -28,17 +28,17 @@
 		<a href="" class="filter year">Sermons by Year</a>
 		<a href="/worship-timebox" class="link">Worship Timebox</a>
 	</div>
-	<div id="mobile-nav" class="mobile-nav" onclick="mobileNav()"></div>
+	<div id="mobile-nav" class="mobile-nav"></div>
 </nav>
 
 
 
 <!-- Desktop Filters in Nav -->
 <div class="dropdown" id="series-dropdown">
-	<div class="heart-motives">Heart Motives
+	<div class="series heart-motives">Heart Motives
 		<span>Why do we do what we do?</span>
 	</div>
-	<div class="romans">Romans Series
+	<div class="series romans">Romans Series
 		<span>Popular exposition preached from 2007-2010</span>
 	</div>
 </div>
@@ -53,21 +53,28 @@
 
 <!-- Mobile Filter Screen -->
 <div class="mobile-filter-screen" id="mobile-filter-screen">
-	<div class="close"></div>
 	<div class="container top">
-		<a href="/" class="current link">All Sermons</a>
-		<a href="/worship-timebox" class="link">Worship Timebox</a>
+		<div class="close"></div>Filters
 	</div>
 	<div class="container middle">
+		<a href="/" class="current link">All Sermons</a>
+		<a href="/worship-timebox" class="link">Worship Timebox</a>
 		<a href="" class="filter series">Sermons by Series</a>
-		<div class="accordion" id="accordion-series"></div>
+		<div class="accordion" id="series-accordion">
+			<div class="series heart-motives">Heart Motives
+				<span>Why do we do what we do?</span>
+			</div>
+			<div class="series romans">Romans Series
+				<span>Popular exposition preached from 2007-2010</span>
+			</div>
+		</div>
 		<a href="" class="filter categories">Explore Categories</a>
-		<div class="accordion" id="accordion-categories"></div>
+		<div class="accordion" id="categories-accordion"></div>
 		<a href="" class="filter year">Sermons by Year</a>
-		<div class="accordion" id="accordion-year"></div>
+		<div class="accordion" id="year-accordion"></div>
 	</div>
 	<div class="container bottom">
-		
+		<button>Search</button>
 	</div>
 </div>
 

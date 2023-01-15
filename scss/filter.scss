@@ -15,31 +15,31 @@ div#series-dropdown {
 	gap:7%;
 	top:-100%;
 	@include dropdown;
+}
 
-	div {
-		@extend h3;
-		padding-left:calc(50px + 13px);
-		position:relative;
-		cursor:pointer;
+div.series {
+	@extend h3;
+	padding-left:calc(50px + 13px);
+	position:relative;
+	cursor:pointer;
 
-		span {
-			@extend p;
-			display:block;
-		}
+	span {
+		@extend p;
+		display:block;
 	}
+}
 
-	div.heart-motives:before {
-		@include icon('assets/icon-heart.svg');
-		position:absolute;
-		left:0;
+div.heart-motives:before {
+	@include icon('assets/icon-heart.svg');
+	position:absolute;
+	left:0;
 
-	}
+}
 
-	div.romans:before {
-		@include icon('assets/icon-romans.svg');
-		position:absolute;
-		left:0;
-	}
+div.romans:before {
+	@include icon('assets/icon-romans.svg');
+	position:absolute;
+	left:0;
 }
 
 div#categories-dropdown {
@@ -55,12 +55,12 @@ div#categories-dropdown {
 		display:flex;
 		align-items:center;
 	}
-}
-
-button {
-	position:absolute;
-	bottom:$padding-n;
-	right:$padding-n;
+	
+	button {
+		position:absolute;
+		bottom:$padding-n;
+		right:$padding-n;
+	}
 }
 
 div#year-dropdown {

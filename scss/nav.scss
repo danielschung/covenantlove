@@ -45,10 +45,6 @@
 		@include vertical-center;
 		right:-5px;
 	}
-
-	a:hover {
-		border-bottom:2px solid $accent;
-	}
 }
 
 
@@ -76,6 +72,10 @@ nav {
 		@include vertical-center;
 		@include nav-links;
 		right:$padding-xs;
+
+		a:hover {
+			border-bottom:2px solid $accent;
+		}
 	}
 
 	div.container.mobile {
@@ -96,6 +96,96 @@ nav {
 
 // ------- mobile nav -------
 
+div#mobile-filter-screen {
+	background-color:$white;
+	border-radius:16px 16px 0 0;
+	height:90%;
+	width:100%;
+	position:fixed;
+	z-index:3;
+	bottom:-100%;
+	display:block;
+
+	div.close {
+		@include icon('assets/icon-xs.svg');
+		height:1rem;
+		width:1rem;
+		color:$darkgrey;
+	}
+
+
+	div.container {
+		@include nav-links;
+		display:flex;
+
+		a {
+			margin:0;
+		}
+
+		a.filter.active {
+			border-bottom:none;
+			color:$accent;
+		}
+	}
+
+	div.top {
+		margin:0 auto;
+		position:absolute;
+		top:0;
+		background-color:$cloud;
+		width:100%;
+		padding:1.2rem 1.2rem 1.2rem 3.3rem;
+		border-radius:16px 16px 0 0;
+		@extend h3;
+		color:$lightblack;
+
+		div.close {
+			@include vertical-center;
+			left:1.2rem;
+		}
+	}
+
+	div.middle {
+		display:flex;
+		flex-flow: column nowrap;
+		margin-top:3.7rem;
+		padding:8px 21px 8px 24px;
+		flex:3 0 auto;
+		height:calc(100% - 127px);
+
+		a.link {
+			display:inline-block;
+			text-align:center;
+			margin:0 auto 1rem 0;
+		}
+	}
+
+	div.accordion {
+		overflow:scroll;
+		max-height:300px;
+		padding:1rem 0;
+		margin-bottom:1rem;
+		border-bottom:1px solid $border;
+		display:flex;
+		flex-flow: column nowrap;
+		gap:1rem;
+		display:none;
+	}
+
+	div.bottom {
+		background-color:$cloud;
+		padding:1rem 0;
+		position:absolute;
+		bottom:0;
+		width:100%;
+
+		button { 
+			position:relative;
+			margin:0 21px 0 auto;
+		}
+	}
+}
+
 div.mobile-filter-screen {
 	display:none;
 }
@@ -109,51 +199,6 @@ div.mobile-filter-screen {
 
 	nav div.container {
 		display:none;
-	}
-
-	div#mobile-filter-screen {
-		background-color:$cloud;
-		border-radius:16px 16px 0 0;
-		height:73%;
-		width:100%;
-		position:fixed;
-		z-index:3;
-		bottom:-100%;
-		padding:$padding-l;
-		display:flex;
-		flex-flow: column nowrap;
-		gap:1.75rem;
-
-		div.close {
-			@include icon('assets/icon-xs.svg');
-			height:1rem;
-			width:1rem;
-			position:absolute;
-			top:2.5rem;
-			right:2.5rem;
-		}
-
-
-		div.container {
-			@include nav-links;
-			display:flex;
-
-			a {
-				margin:0;
-			}
-		}
-
-		div.top {
-			margin:0 auto;
-			flex-flow: row nowrap;
-			align-items:center;
-			gap:2.5rem;
-		}
-
-		div.middle {
-			flex-flow: column nowrap;
-
-		}
 	}
 
 	div.overlay { z-index:2; }
