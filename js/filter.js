@@ -115,14 +115,20 @@ function desktopFilters() {
 
 function mobileFilters(filter) {
 	let buttons = document.querySelectorAll('#mobile-filter-screen a.filter');
+	let accordions = document.querySelectorAll('#mobile-filter-screen div.accordion');
 
 	const on = (x) => {
 		$(x).slideDown(300);
 		$(x).css({ display:'flex'});
 	}
 
-	const off = (x) => {
-		$(x).slideUp(300);
+	const off = (all) => {
+		let c = 0;
+		while ( c < buttons.length ) {
+			$(buttons[c]).removeClass('active');
+			$(accordions[c]).slideUp(300);
+			c++;
+		}
 	}
 
 
@@ -132,11 +138,12 @@ function mobileFilters(filter) {
 			let accordion = this.nextElementSibling;
 
 			if ( !$(buttons[b]).hasClass('active') ) {
+				off();
 				$(this).addClass('active');
 				on(accordion);
 			} else {
 				$(this).removeClass('active');
-				off(accordion);
+				off();
 			}
 		}
 	}

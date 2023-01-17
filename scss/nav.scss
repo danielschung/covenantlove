@@ -153,10 +153,16 @@ div#mobile-filter-screen {
 		flex:3 0 auto;
 		height:calc(100% - 127px);
 
+		div.links {
+			display:flex;
+			gap:2rem;
+			margin-bottom:1rem;
+		}
+
 		a.link {
 			display:inline-block;
 			text-align:center;
-			margin:0 auto 1rem 0;
+			flex:0 0 auto;
 		}
 	}
 
